@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Hello {{title}} (id:{{id}})</h1>
+<p>Hello {{content}}</p>
+<a href="{% url 'article-create'%}">Create Article</a>
+<a href="{% url 'article-detail' slug='this-is-my-first-title-1' %}">Article Details</a>
+
+<ul>
+  {% for x in object_list %} {% if x.title %}
+  <!-- <li><a href='{{ x.get_absolute_url }}'>{{ x.title }} - {{ x.content }}</li> -->
+  <li><a href='{{ x.get_absolute_url }}'>{{ x.title }} - {{ x.content }}</li>
+  {% endif %} {%endfor%}
+</ul>
+{% endblock content %}
